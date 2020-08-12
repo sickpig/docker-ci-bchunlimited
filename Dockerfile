@@ -23,7 +23,7 @@ RUN apt-get -y --no-install-recommends --no-upgrade -qq install libboost-thread-
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install libtool libzmq3-dev pkg-config protobuf-compiler python3 python3-zmq qttools5-dev qttools5-dev-tools
 
 # Support windows build
-RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3 nsis g++-mingw-w64-x86-64 wine64 wine-binfmt curl automake autoconf libtool pkg-config
+RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3 nsis g++-mingw-w64-i686 g++-mingw-w64-x86-64 wine64 wine-binfmt curl automake autoconf libtool pkg-config
 RUN update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
 RUN update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
 RUN update-alternatives --set i686-w64-mingw32-g++ /usr/bin/i686-w64-mingw32-g++-posix
