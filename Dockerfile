@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get -y update
 RUN apt-get install -y --no-install-recommends --no-upgrade -qq software-properties-common
-RUN add-apt-repository -y --no-install-recommends --no-upgrade -qq universe
+RUN add-apt-repository -y universe
 
 # Make sure UTF-8 isn't borked
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install locales
