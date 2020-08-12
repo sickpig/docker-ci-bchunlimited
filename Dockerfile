@@ -26,6 +26,8 @@ RUN apt-get -y --no-install-recommends --no-upgrade -qq install libtool libzmq3-
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3 nsis g++-mingw-w64-x86-64 wine64 wine-binfmt curl automake autoconf libtool pkg-config
 RUN update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
 RUN update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
+RUN update-alternatives --set i686-w64-mingw32-g++ /usr/bin/i686-w64-mingw32-g++-posix
+RUN update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
 
 # Support ARM build
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install autoconf automake curl g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf gperf pkg-config
