@@ -19,7 +19,7 @@ RUN locale-gen
 # Build requirements
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install g++-multilib automake autotools-dev bsdmainutils build-essential ca-certificates ccache clang-9 curl
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install git libboost-all-dev libboost-chrono-dev libboost-filesystem-dev libboost-program-options-dev libboost-system-dev libboost-test-dev
-RUN apt-get -y --no-install-recommends --no-upgrade -qq install libboost-thread-dev libdb5.3-dev libdb5.3++-dev libedit2 libevent-dev libminiupnpc-dev libprotobuf-dev libqrencode-dev libssl1.0-dev
+RUN apt-get -y --no-install-recommends --no-upgrade -qq install libboost-thread-dev libedit2 libevent-dev libminiupnpc-dev libprotobuf-dev libqrencode-dev libssl1.0-dev
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install libtool libzmq3-dev pkg-config protobuf-compiler python3 python3-zmq qttools5-dev qttools5-dev-tools
 
 # Support windows build
