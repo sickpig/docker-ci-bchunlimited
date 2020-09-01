@@ -36,7 +36,11 @@ RUN apt-get -y --no-install-recommends --no-upgrade -qq install autoconf automak
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu qemu-user-static
 
 # Support OSX build
-RUN apt-get -y --no-install-recommends --no-upgrade -qq install  cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git
+RUN apt-get -y --no-install-recommends --no-upgrade -qq install  cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git python3-setuptools
+
+# Add tools to debug failing QA tests
+RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3-pip
+RUN pip3 install psutil
 
 # Add tools to debug failing QA tests
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3-pip
