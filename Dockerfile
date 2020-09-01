@@ -22,10 +22,6 @@ RUN apt-get -y --no-install-recommends --no-upgrade -qq install git libboost-all
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install libboost-thread-dev libedit2 libevent-dev libminiupnpc-dev libprotobuf-dev libqrencode-dev libssl1.0-dev
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install libtool libzmq3-dev pkg-config protobuf-compiler python3 python3-zmq qttools5-dev qttools5-dev-tools
 
-# Add tools to debug failing QA tests
-RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3-pip
-RUN pip3 install psutil
-
 # Support windows build
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3 nsis g++-mingw-w64-i686 g++-mingw-w64-x86-64 wine64 wine-binfmt curl automake autoconf libtool pkg-config
 RUN update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
@@ -40,7 +36,11 @@ RUN apt-get -y --no-install-recommends --no-upgrade -qq install autoconf automak
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu qemu-user-static
 
 # Support OSX build
-RUN apt-get -y --no-install-recommends --no-upgrade -qq install  cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git
+RUN apt-get -y --no-install-recommends --no-upgrade -qq install  cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git python3-setuptools
+
+# Add tools to debug failing QA tests
+RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3-pip
+RUN pip3 install psutil
 
 # Clean up cache
 RUN apt-get clean
