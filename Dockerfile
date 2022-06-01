@@ -22,7 +22,17 @@ RUN apt-get -y --no-install-recommends --no-upgrade -qq install git libboost-all
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install libboost-thread-dev libdb5.3-dev libdb5.3++-dev libedit2 libevent-dev libminiupnpc-dev libprotobuf-dev libqrencode-dev libssl1.0-dev
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install libtool libzmq3-dev pkg-config protobuf-compiler python3 python3-zmq qttools5-dev qttools5-dev-tools bison
 
-#Support linux 32 crosso compile on linux64
+#Add clang-format 12
+RUN apt-get install -y wget gpg-agent
+RUN wget https://apt.llvm.org/llvm.sh
+RUN chmod +x ./llvm.sh
+RUN ./llvm.sh 12 all
+RUN apt-get install clang-format-12
+
+#Add GNU mp bignum library
+RUN apt-get install -y libgmp-dev
+
+#Support linux 32 cross compile on linux64
 RUN dpkg --add-architecture i386
 RUN apt-get update
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install linux-libc-dev:i386
