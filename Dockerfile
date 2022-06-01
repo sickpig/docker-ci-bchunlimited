@@ -44,7 +44,8 @@ RUN apt-get -y --no-install-recommends --no-upgrade -qq install gcc-aarch64-linu
 RUN apt-get -y --no-install-recommends --no-upgrade -qq install  cmake imagemagick python3-git libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git python3-setuptools
 
 # Add tools to debug failing QA tests
-RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3-pip gdb
+RUN apt-get -y --no-install-recommends --no-upgrade -qq install python3-pip gdb python3-dev
+RUN pip3 install wheel
 RUN pip3 install psutil
 
 # Clean up cache
