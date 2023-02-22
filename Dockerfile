@@ -24,10 +24,13 @@ RUN apt-get -y --no-install-recommends --no-upgrade -qq install libtool libzmq3-
 
 #Add clang-format 12
 RUN apt-get install -y wget gpg-agent
+#needed for libstdc++ with C++20 support in ubuntu 18.04 for clang15
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN wget https://apt.llvm.org/llvm.sh
 RUN chmod +x ./llvm.sh
-RUN ./llvm.sh 12 all
-RUN apt-get install clang-format-12
+RUN ./llvm.sh 12
+RUN ./llvm.sh 15
+RUN apt-get install clang-format-12 clang-format-15
 
 #Add GNU mp bignum library
 RUN apt-get install -y libgmp-dev
